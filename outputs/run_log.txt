@@ -1,0 +1,22 @@
+[FAILURE] T1059.001 - PowerShell Reverse Shell
+[FAILURE] T1112 - Registry Persistence
+[SUCCESS] TEST.FILE - Simulate File Drop
+[SUCCESS] TEST.NET - Fake Network Beacon
+[SUCCESS] TEST.FILE - Simulate File Drop
+[SUCCESS] TEST.NET - Fake Network Beacon
+[SUCCESS] TEST.GHOST - Ghost File Test
+[2025-05-14 23:11:20 UTC] [SUCCESS] TEST.FILE - Simulate File Drop
+[2025-05-14 23:11:24 UTC] [SUCCESS] TEST.NET - Fake Network Beacon
+[2025-05-14 23:11:26 UTC] [SUCCESS] TEST.GHOST - Ghost File Test
+[2025-05-14 23:12:01 UTC] [SUCCESS] TEST.FILE - Simulate File Drop
+[2025-05-14 23:12:03 UTC] [SUCCESS] TEST.NET - Fake Network Beacon
+[2025-05-14 23:12:05 UTC] [SUCCESS] TEST.GHOST - Ghost File Test
+[2025-05-14 23:13:33 UTC] [SUCCESS] TEST.FILE - Simulate File Drop
+[2025-05-14 23:13:37 UTC] [SUCCESS] TEST.NET - Fake Network Beacon
+[2025-05-14 23:13:39 UTC] [SUCCESS] TEST.GHOST - Ghost File Test
+[2025-05-14 23:14:10 UTC] [SUCCESS] TEST.FILE - Simulate File Drop
+[2025-05-14 23:14:14 UTC] [SUCCESS] TEST.NET - Fake Network Beacon
+[2025-05-14 23:14:16 UTC] [SUCCESS] TEST.GHOST - Ghost File Test
+[2025-05-14 23:19:41 UTC] [SUCCESS] TEST.FILE - Simulate File Drop
+[2025-05-14 23:19:45 UTC] [SUCCESS] TEST.NET - Fake Network Beacon
+[2025-05-14 23:19:47 UTC] [SUCCESS] TEST.GHOST - Ghost File Test

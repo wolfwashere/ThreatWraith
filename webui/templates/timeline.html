@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ThreatWraith Timeline</title>
+  <style>
+    body {
+      font-family: monospace;
+      background: #111;
+      color: #eee;
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #5ff;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .step {
+      padding: 1rem;
+      border-left: 3px solid #333;
+      margin-bottom: 1.5rem;
+      background: #1a1a1a;
+      border-radius: 5px;
+    }
+
+    .step-title {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #9df;
+    }
+
+    .status-success { color: #5f5; }
+    .status-fail { color: #f55; }
+    .status-skipped { color: #ff5; }
+
+    .command {
+      background: #222;
+      padding: 0.5rem;
+      border-radius: 4px;
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+
+    .tags {
+      margin-top: 0.5rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #444;
+      color: #ddd;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 5px;
+    }
+
+    .timestamp {
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 4px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #333;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+    <h1>🧠 ThreatWraith Scenario Timeline</h1>
+
+    <form method="POST">
+      <label for="scenario">📦 Select Scenario:</label>
+      <select name="scenario" id="scenario">
+        {% for file in scenarios %}
+          <option value="{{ file }}">{{ file }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit">▶ Run</button>
+    </form>
+    
+    <hr>
+    
+  {% for step in steps %}
+    <div class="step">
+      <div class="step-title">{{ step.id }} – {{ step.name }}</div>
+      <div>
+        Status:
+        {% if step.status == 'success' %}
+          <span class="status-success">Executed</span>
+        {% elif step.status == 'fail' %}
+          <span class="status-fail">Failed</span>
+        {% elif step.status == 'skipped' %}
+          <span class="status-skipped">Skipped</span>
+        {% endif %}
+      </div>
+      <div>Sleep: {{ step.sleep }}</div>
+      <div class="command">Command: {{ step.command }}</div>
+      <div class="tags">
+        {% for tag in step.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      <div class="timestamp">Timestamp: {{ step.timestamp }}</div>
+    </div>
+  {% endfor %}
+</body>
+</html>
+

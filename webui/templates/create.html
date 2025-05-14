@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Scenario – ThreatWraith</title>
+  <style>
+    body { font-family: monospace; background: #111; color: #eee; padding: 2rem; }
+    input, textarea, select, button {
+      font-family: monospace;
+      background: #222;
+      color: #fff;
+      border: 1px solid #333;
+      padding: 0.4rem;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    .step-block {
+      border-left: 3px solid #333;
+      background: #1a1a1a;
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+    .button { background: #444; cursor: pointer; }
+    .add-btn { background: #5f5; color: #000; }
+    .save-btn { background: #09f; color: #fff; }
+  </style>
+</head>
+<body>
+  <h1>📜 Create New Scenario</h1>
+
+  <div id="steps-container"></div>
+  <button onclick="addStep()" class="add-btn">+ Add Step</button>
+
+  <form method="POST">
+    <input type="text" name="filename" placeholder="scenario_name.yml" required />
+    <input type="hidden" name="scenario_json" id="scenario_json" />
+    <button type="submit" class="save-btn" onclick="prepareScenario()">💾 Save Scenario</button>
+  </form>
+
+  <script>
+    const container = document.getElementById('steps-container');
+    let stepCount = 0;
+  
+    function addStep() {
+      const block = document.createElement('div');
+      block.className = 'step-block';
+      block.innerHTML = `
+        <h3>Step ${stepCount + 1}</h3>
+        <input type="text" placeholder="id" id="id-${stepCount}">
+        <input type="text" placeholder="name" id="name-${stepCount}">
+        <input type="text" placeholder="command" id="command-${stepCount}">
+        <input type="text" placeholder="os (windows/linux/any)" id="os-${stepCount}">
+        <input type="text" placeholder="sleep (e.g. 3-6)" id="sleep-${stepCount}">
+        <input type="text" placeholder="tags (comma separated)" id="tags-${stepCount}">
+        <div id="artifacts-${stepCount}"></div>
+        <button type="button" onclick="addArtifact(${stepCount})" class="add-btn">+ Add Artifact</button>
+      `;
+      container.appendChild(block);
+      stepCount++;
+    }
+  
+    function addArtifact(stepId) {
+      const container = document.getElementById(`artifacts-${stepId}`);
+      const artifactIndex = container.childElementCount;
+  
+      const artifactDiv = document.createElement('div');
+      artifactDiv.style.borderTop = "1px solid #333";
+      artifactDiv.style.marginTop = "1rem";
+      artifactDiv.style.paddingTop = "1rem";
+      artifactDiv.innerHTML = `
+        <h4>Artifact ${artifactIndex + 1}</h4>
+        <input type="text" placeholder="type (file, registry, eventlog, network)" id="artifact-type-${stepId}-${artifactIndex}">
+        <input type="text" placeholder="key/path/source/host" id="artifact-key-${stepId}-${artifactIndex}">
+        <input type="text" placeholder="value/message/contents/port" id="artifact-value-${stepId}-${artifactIndex}">
+      `;
+  
+      container.appendChild(artifactDiv);
+    }
+  
+    function prepareScenario() {
+      const steps = [];
+      for (let i = 0; i < stepCount; i++) {
+        const step = {
+          id: document.getElementById(`id-${i}`).value,
+          name: document.getElementById(`name-${i}`).value,
+          command: document.getElementById(`command-${i}`).value,
+          os: document.getElementById(`os-${i}`).value,
+          sleep: document.getElementById(`sleep-${i}`).value,
+          tags: document.getElementById(`tags-${i}`).value.split(',').map(tag => tag.trim()),
+          artifacts: []
+        };
+  
+        // Pull artifacts
+        const artifactContainer = document.getElementById(`artifacts-${i}`);
+        const artifactCount = artifactContainer.childElementCount;
+        for (let j = 0; j < artifactCount; j++) {
+          const type = document.getElementById(`artifact-type-${i}-${j}`)?.value;
+          const key = document.getElementById(`artifact-key-${i}-${j}`)?.value;
+          const value = document.getElementById(`artifact-value-${i}-${j}`)?.value;
+  
+          if (type && key) {
+            const artifact = { type: type.toLowerCase() };
+  
+            if (type === 'file') {
+              artifact['path'] = key;
+              artifact['contents'] = value;
+            } else if (type === 'registry') {
+              artifact['key'] = key;
+              artifact['value'] = value;
+            } else if (type === 'eventlog') {
+              artifact['source'] = key;
+              artifact['message'] = value;
+            } else if (type === 'network') {
+              artifact['host'] = key;
+              artifact['port'] = parseInt(value) || 80;
+            }
+  
+            step.artifacts.push(artifact);
+          }
+        }
+  
+        steps.push(step);
+      }
+  
+      document.getElementById('scenario_json').value = JSON.stringify(steps, null, 2);
+
+      // Live YAML preview
+      const yamlPreview = jsyaml.dump(steps);
+      document.getElementById('yaml_preview').value = yamlPreview;
+    }
+  </script>
+  
+  <h2>📄 YAML Preview</h2>
+  <textarea id="yaml_preview" rows="20" readonly></textarea>
+  
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+
+</body>
+</html>

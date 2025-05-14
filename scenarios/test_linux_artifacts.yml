@@ -1,0 +1,29 @@
+- id: TEST.FILE
+  name: Simulate File Drop
+  command: echo "Simulation"  # harmless
+  sleep: 1-2
+  os: any
+  artifacts:
+    - type: file
+      path: outputs/dropped_note.txt
+      contents: "This is a simulated artifact."
+
+- id: TEST.NET
+  name: Fake Network Beacon
+  command: echo "Beaconing..."
+  sleep: 1
+  os: any
+  artifacts:
+    - type: network
+      host: example.com
+      port: 80
+
+- id: TEST.GHOST
+  name: Ghost File Test
+  command: echo "Writing ghost file"
+  sleep: 1-2
+  os: any
+  artifacts:
+    - type: file
+      path: outputs/ghostnote.txt
+      contents: "This should disappear after execution."

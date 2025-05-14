@@ -1,0 +1,137 @@
+[
+  {
+    "id": "TEST.FILE",
+    "name": "Simulate File Drop",
+    "command": "echo \"Simulation\"",
+    "tags": [],
+    "sleep": "1-2",
+    "status": "success",
+    "timestamp": "2025-05-14 23:11:20 UTC"
+  },
+  {
+    "id": "TEST.NET",
+    "name": "Fake Network Beacon",
+    "command": "echo \"Beaconing...\"",
+    "tags": [],
+    "sleep": 1,
+    "status": "success",
+    "timestamp": "2025-05-14 23:11:24 UTC"
+  },
+  {
+    "id": "TEST.GHOST",
+    "name": "Ghost File Test",
+    "command": "echo \"Writing ghost file\"",
+    "tags": [],
+    "sleep": "1-2",
+    "status": "success",
+    "timestamp": "2025-05-14 23:11:26 UTC"
+  },
+  {
+    "id": "TEST.FILE",
+    "name": "Simulate File Drop",
+    "command": "echo \"Simulation\"",
+    "tags": [],
+    "sleep": "1-2",
+    "status": "success",
+    "timestamp": "2025-05-14 23:12:01 UTC"
+  },
+  {
+    "id": "TEST.NET",
+    "name": "Fake Network Beacon",
+    "command": "echo \"Beaconing...\"",
+    "tags": [],
+    "sleep": 1,
+    "status": "success",
+    "timestamp": "2025-05-14 23:12:03 UTC"
+  },
+  {
+    "id": "TEST.GHOST",
+    "name": "Ghost File Test",
+    "command": "echo \"Writing ghost file\"",
+    "tags": [],
+    "sleep": "1-2",
+    "status": "success",
+    "timestamp": "2025-05-14 23:12:05 UTC"
+  },
+  {
+    "id": "TEST.FILE",
+    "name": "Simulate File Drop",
+    "command": "echo \"Simulation\"",
+    "tags": [],
+    "sleep": "1-2",
+    "status": "success",
+    "timestamp": "2025-05-14 23:13:33 UTC"
+  },
+  {
+    "id": "TEST.NET",
+    "name": "Fake Network Beacon",
+    "command": "echo \"Beaconing...\"",
+    "tags": [],
+    "sleep": 1,
+    "status": "success",
+    "timestamp": "2025-05-14 23:13:37 UTC"
+  },
+  {
+    "id": "TEST.GHOST",
+    "name": "Ghost File Test",
+    "command": "echo \"Writing ghost file\"",
+    "tags": [],
+    "sleep": "1-2",
+    "status": "success",
+    "timestamp": "2025-05-14 23:13:39 UTC"
+  },
+  {
+    "id": "TEST.FILE",
+    "name": "Simulate File Drop",
+    "command": "echo \"Simulation\"",
+    "tags": [],
+    "sleep": "1-2",
+    "status": "success",
+    "timestamp": "2025-05-14 23:14:10 UTC"
+  },
+  {
+    "id": "TEST.NET",
+    "name": "Fake Network Beacon",
+    "command": "echo \"Beaconing...\"",
+    "tags": [],
+    "sleep": 1,
+    "status": "success",
+    "timestamp": "2025-05-14 23:14:14 UTC"
+  },
+  {
+    "id": "TEST.GHOST",
+    "name": "Ghost File Test",
+    "command": "echo \"Writing ghost file\"",
+    "tags": [],
+    "sleep": "1-2",
+    "status": "success",
+    "timestamp": "2025-05-14 23:14:16 UTC"
+  },
+  {
+    "id": "TEST.FILE",
+    "name": "Simulate File Drop",
+    "command": "echo \"Simulation\"",
+    "tags": [],
+    "sleep": "1-2",
+    "status": "success",
+    "timestamp": "2025-05-14 23:19:41 UTC"
+  },
+  {
+    "id": "TEST.NET",
+    "name": "Fake Network Beacon",
+    "command": "echo \"Beaconing...\"",
+    "tags": [],
+    "sleep": 1,
+    "status": "success",
+    "timestamp": "2025-05-14 23:19:45 UTC"
+  },
+  {
+    "id": "TEST.GHOST",
+    "name": "Ghost File Test",
+    "command": "echo \"Writing ghost file\"",
+    "tags": [],
+    "sleep": "1-2",
+    "status": "success",
+    "timestamp": "2025-05-14 23:19:47 UTC"
+  }
+]
