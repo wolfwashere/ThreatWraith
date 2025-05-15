@@ -85,8 +85,6 @@ outputs/training_cases/YYYY-MM-DD_HHMMSS/
 - [ ] WebSocket-powered live output feed  
 - [ ] Training case replay from ZIP  
 
-## 📄 License  
-MIT License. Use responsibly and only in authorized environments.
 
 ## 🧑‍💻 Author  
 [@wolfwashere](https://github.com/wolfwashere) — built for real-world detection, adversary simulation, and incident response training.
